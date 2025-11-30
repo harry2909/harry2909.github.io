@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-  <div class='container px-4 xl:px-0 mx-auto'>
+  <div class='w-200 px-4 xl:px-0 mx-auto'>
     <h1 class='text-4xl font-bold mb-2 text-gray-800 dark:text-white'>
       Contact
     </h1>
@@ -16,7 +16,7 @@ import Layout from '../layouts/Layout.astro';
           type='text'
           id='name'
           name='name'
-          class='border border-gray-300 dark:border-gray-600 rounded-md p-2 bg-white dark:bg-gray-800 text-gray-800 dark:text-black'
+          class='border border-gray-300 dark:border-gray-600 rounded-md p-2 bg-white dark:bg-gray-800 text-gray-800 dark:text-black shadow-md focus:shadow-lg transition-shadow'
         />
       </div>
       <div class='flex flex-col gap-y-2'>
@@ -27,7 +27,7 @@ import Layout from '../layouts/Layout.astro';
           type='email'
           id='email'
           name='email'
-          class='border border-gray-300 dark:border-gray-600 rounded-md p-2 bg-white dark:bg-gray-800 text-gray-800 dark:text-black'
+          class='border border-gray-300 dark:border-gray-600 rounded-md p-2 bg-white dark:bg-gray-800 text-gray-800 dark:text-black shadow-md focus:shadow-lg transition-shadow'
         />
       </div>
       <div class='flex flex-col gap-y-2'>
@@ -37,12 +37,12 @@ import Layout from '../layouts/Layout.astro';
         <textarea
           id='message'
           name='message'
-          class='border border-gray-300 dark:border-gray-600 rounded-md p-2 bg-white dark:bg-gray-800 text-gray-800 dark:text-black'
+          class='border border-gray-300 dark:border-gray-600 rounded-md p-2 bg-white dark:bg-gray-800 text-gray-800 dark:text-black shadow-md focus:shadow-lg transition-shadow'
         ></textarea>
       </div>
       <button
         type='submit'
-        class='bg-rose dark:bg-pink text-white rounded-md p-2 hover:bg-rose dark:hover:bg-pink transition-colors'
+        class='bg-rose dark:bg-pink text-white rounded-md p-2 hover:bg-rose dark:hover:bg-pink transition-all shadow-lg hover:shadow-xl'
         >Send</button
       >
     </form>

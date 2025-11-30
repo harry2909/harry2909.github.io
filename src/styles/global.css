@@ -1,11 +1,11 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
-    --color-accent: #D34F73;
+  --color-rose: #9E0031;
 
-    --font-kanit: 'Kanit', sans-serif;
+  --font-sora: 'Sora Variable', sans-serif;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }

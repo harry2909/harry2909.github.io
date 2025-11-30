@@ -11,7 +11,7 @@ const id = `bubble-text-${Math.random().toString(36).substring(7)}`;
 <span class={`inline-flex font-thin text-inherit ${className}`} data-bubble-id={id}>
   {text.split('').map((char, idx) => (
     <span
-      class="inline-block font-thin text-[#E11D48] transition-all duration-350"
+      class="inline-block font-thin text-[#E11D48] dark:text-pink transition-all duration-350"
       data-index={idx}
       style="transition-duration: 350ms;"
     >
@@ -27,39 +27,45 @@ const id = `bubble-text-${Math.random().toString(36).substring(7)}`;
 
     const spans = bubbleText.querySelectorAll('span[data-index]');
 
+    const getIsDark = () => document.documentElement.classList.contains('dark');
+
     const handleMouseEnter = (span) => {
+      const isDark = getIsDark();
       span.style.fontWeight = '900';
-      span.style.color = '#9E0031'; // --color-rose
+      // Use rose in light mode, pink in dark mode
+      span.style.color = isDark ? '#d34f73' : '#9e0031';
 
       const leftNeighbor = span.previousElementSibling;
       const rightNeighbor = span.nextElementSibling;
 
       if (leftNeighbor?.hasAttribute('data-index')) {
         leftNeighbor.style.fontWeight = '500';
-        leftNeighbor.style.color = '#BE185D';
+        leftNeighbor.style.color = isDark ? '#e8799f' : '#BE185D';
       }
 
       if (rightNeighbor?.hasAttribute('data-index')) {
         rightNeighbor.style.fontWeight = '500';
-        rightNeighbor.style.color = '#BE185D';
+        rightNeighbor.style.color = isDark ? '#e8799f' : '#BE185D';
       }
     };
 
     const handleMouseLeave = (span) => {
+      const isDark = getIsDark();
       span.style.fontWeight = '100';
-      span.style.color = '#E11D48';
+      // Use light rose in light mode, pink in dark mode
+      span.style.color = isDark ? '#d34f73' : '#E11D48';
 
       const leftNeighbor = span.previousElementSibling;
       const rightNeighbor = span.nextElementSibling;
 
       if (leftNeighbor?.hasAttribute('data-index')) {
         leftNeighbor.style.fontWeight = '100';
-        leftNeighbor.style.color = '#E11D48';
+        leftNeighbor.style.color = isDark ? '#d34f73' : '#E11D48';
       }
 
       if (rightNeighbor?.hasAttribute('data-index')) {
         rightNeighbor.style.fontWeight = '100';
-        rightNeighbor.style.color = '#E11D48';
+        rightNeighbor.style.color = isDark ? '#d34f73' : '#E11D48';
       }
     };
 

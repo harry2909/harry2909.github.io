@@ -1,0 +1,77 @@
+---
+interface Props {
+  text: string;
+  className?: string;
+}
+
+const { text, className = '' } = Astro.props;
+const id = `bubble-text-${Math.random().toString(36).substring(7)}`;
+---
+
+<span class={`inline-flex font-thin text-inherit ${className}`} data-bubble-id={id}>
+  {text.split('').map((char, idx) => (
+    <span
+      class="inline-block font-thin text-[#E11D48] transition-all duration-350"
+      data-index={idx}
+      style="transition-duration: 350ms;"
+    >
+      {char === ' ' ? '\u00A0' : char}
+    </span>
+  ))}
+</span>
+
+<script define:vars={{ id }}>
+  const initBubbleText = () => {
+    const bubbleText = document.querySelector(`[data-bubble-id="${id}"]`);
+    if (!bubbleText) return;
+
+    const spans = bubbleText.querySelectorAll('span[data-index]');
+
+    const handleMouseEnter = (span) => {
+      span.style.fontWeight = '900';
+      span.style.color = '#9E0031'; // --color-rose
+
+      const leftNeighbor = span.previousElementSibling;
+      const rightNeighbor = span.nextElementSibling;
+
+      if (leftNeighbor?.hasAttribute('data-index')) {
+        leftNeighbor.style.fontWeight = '500';
+        leftNeighbor.style.color = '#BE185D';
+      }
+
+      if (rightNeighbor?.hasAttribute('data-index')) {
+        rightNeighbor.style.fontWeight = '500';
+        rightNeighbor.style.color = '#BE185D';
+      }
+    };
+
+    const handleMouseLeave = (span) => {
+      span.style.fontWeight = '100';
+      span.style.color = '#E11D48';
+
+      const leftNeighbor = span.previousElementSibling;
+      const rightNeighbor = span.nextElementSibling;
+
+      if (leftNeighbor?.hasAttribute('data-index')) {
+        leftNeighbor.style.fontWeight = '100';
+        leftNeighbor.style.color = '#E11D48';
+      }
+
+      if (rightNeighbor?.hasAttribute('data-index')) {
+        rightNeighbor.style.fontWeight = '100';
+        rightNeighbor.style.color = '#E11D48';
+      }
+    };
+
+    spans.forEach((span) => {
+      span.addEventListener('mouseenter', () => handleMouseEnter(span));
+      span.addEventListener('mouseleave', () => handleMouseLeave(span));
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBubbleText);
+  } else {
+    initBubbleText();
+  }
+</script>

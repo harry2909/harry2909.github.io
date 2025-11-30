@@ -1,0 +1,57 @@
+---
+import MoonIcon from '../assets/moon.svg';
+import SunIcon from '../assets/sun.svg';
+---
+
+<button
+  id='theme-toggle'
+  type='button'
+  class='cursor-pointer rounded-lg transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 p-1 dark:text-gray-200 flex items-center justify-center'
+  aria-label='Toggle dark mode'
+>
+  <span id='moon-icon' class='hidden dark:inline-block'>
+    <MoonIcon class='size-6 text-white' />
+  </span>
+  <span id='sun-icon' class='inline-block dark:hidden'>
+    <SunIcon class='size-6 text-dark-gray-800' />
+  </span>
+</button>
+
+<script is:inline>
+  // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+  document.documentElement.classList.toggle(
+    'dark',
+    localStorage.theme === 'dark' ||
+      (!('theme' in localStorage) &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+  );
+</script>
+
+<script>
+  const themeToggle = document.getElementById('theme-toggle');
+  const html = document.documentElement;
+
+  // Toggle theme on button click
+  themeToggle?.addEventListener('click', () => {
+    const isDark = html.classList.contains('dark');
+
+    if (isDark) {
+      // Switch to light mode
+      html.classList.remove('dark');
+      localStorage.theme = 'light';
+    } else {
+      // Switch to dark mode
+      html.classList.add('dark');
+      localStorage.theme = 'dark';
+    }
+  });
+
+  // Listen for system theme changes (only if user hasn't set a preference)
+  window
+    .matchMedia('(prefers-color-scheme: dark)')
+    .addEventListener('change', (e) => {
+      if (!('theme' in localStorage)) {
+        html.classList.toggle('dark', e.matches);
+      }
+    });
+</script>

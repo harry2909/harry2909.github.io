@@ -1,22 +1,25 @@
-<!doctype html>
+---
+import '../styles/global.css';
+import '@fontsource/kanit';
+import 'aos/dist/aos.css';
+import Navigation from '../components/Navigation.astro';
+---
+
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Ruby Preston - Portfolio</title>
 	</head>
-	<body>
+	<body class="bg-black text-white antialiased h-screen w-screen m-0 p-0 font-kanit">
+		<Navigation />
 		<slot />
+		<script>
+		import AOS from "aos";
+			AOS.init();
+		</script>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

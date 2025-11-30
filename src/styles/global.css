@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+    --color-accent: #D34F73;
+
+    --font-kanit: 'Kanit', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}

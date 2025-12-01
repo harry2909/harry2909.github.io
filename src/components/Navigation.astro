@@ -3,11 +3,12 @@ import ThemeToggle from './ThemeToggle.astro';
 ---
 
 <nav
-  class='sticky top-0 z-50 font-medium w-200 px-4 xl:px-0 mx-auto bg-white dark:bg-black transition-colors duration-300 border-0 shadow-none'
+  id='main-nav'
+  class='sticky top-0 z-50 font-medium w-full md:max-w-200 px-4 xl:px-0 mx-auto bg-white dark:bg-black transition-all duration-300 border-0 shadow-none transform translate-y-0'
 >
   <div class='flex justify-between items-center'>
     <ul
-      class='flex justify-evenly gap-x-4 items-center sm:max-w-1/4 w-full text-gray-800 dark:text-white mx-auto py-4 w-fit'
+      class='flex justify-evenly gap-x-4 items-center sm:max-w-1/4 w-full text-gray-800 dark:text-white mx-auto py-4 w-fit text-sm md:text-base'
     >
       <li>
         <a href='/' class='group transition duration-300'>
@@ -39,3 +40,35 @@ import ThemeToggle from './ThemeToggle.astro';
     </div>
   </div>
 </nav>
+
+<script>
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+  const nav = document.getElementById('main-nav');
+
+  const updateNav = () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      // Scrolling down - hide nav
+      nav?.classList.add('-translate-y-full');
+      nav?.classList.remove('translate-y-0');
+    } else if (currentScrollY < lastScrollY) {
+      // Scrolling up - show nav
+      nav?.classList.remove('-translate-y-full');
+      nav?.classList.add('translate-y-0');
+    }
+
+    lastScrollY = currentScrollY;
+    ticking = false;
+  };
+
+  const onScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateNav);
+      ticking = true;
+    }
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+</script>

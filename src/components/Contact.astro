@@ -13,7 +13,7 @@ const getIcon = (iconName: string) => {
 };
 ---
 
-<section id="contact" class="py-12 px-4 sm:py-16 sm:px-6 md:py-20 lg:py-10">
+<section id="contact" class="py-12 px-4 sm:py-16 sm:px-6 md:py-20 lg:py-10 bg-section-bg">
   <div class="max-w-6xl mx-auto">
     <div class="text-center max-w-2xl mx-auto contact-content px-2 sm:px-0">
       <p class="text-white/90 mb-4 sm:mb-6 text-base font-semibold">
@@ -22,7 +22,7 @@ const getIcon = (iconName: string) => {
 
       <a
         href="mailto:roadsterworks@gmail.com"
-        class="inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg hover:bg-primary-hover transition-all duration-300 ease-in-out mb-6 sm:mb-8 contact-button hover:scale-105 active:scale-95 text-sm sm:text-base"
+        class="inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg hover:bg-primary-hover transition-all duration-300 ease-in-out mb-6 sm:mb-8 contact-button hover:scale-105 active:scale-95 text-sm sm:text-base transform-gpu"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="4" width="20" height="16" rx="2"></rect>
@@ -31,7 +31,7 @@ const getIcon = (iconName: string) => {
         Get in touch
       </a>
 
-      <div class="flex justify-center gap-4 sm:gap-6 [&_a]:text-white/90 [&_a]:hover:text-primary [&_a]:transition-all duration-300 ease-in-out [&_a]:hover:-translate-y-0.5 [&_a]:hover:scale-110">
+      <div class="flex justify-center gap-4 sm:gap-6 [&_a]:text-white/90 [&_a]:hover:text-primary [&_a]:transition-all duration-300 ease-in-out [&_a]:hover:-translate-y-0.5 [&_a]:hover:scale-110 [&_a]:transform-gpu">
         {socialLinks.map((social, index) => {
           const iconHtml = getIcon(social.icon);
           return (

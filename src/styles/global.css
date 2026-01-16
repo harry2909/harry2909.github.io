@@ -52,32 +52,32 @@ html {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(20px) translateZ(0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) translateZ(0);
   }
 }
 
 @keyframes fadeInScale {
   from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.9) translateZ(0);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) translateZ(0);
   }
 }
 
 @keyframes slideDown {
   from {
-    transform: translateY(-20px);
+    transform: translateY(-20px) translateZ(0);
     opacity: 0;
   }
   to {
-    transform: translateY(0);
+    transform: translateY(0) translateZ(0);
     opacity: 1;
   }
 }
@@ -91,6 +91,7 @@ html {
   }
 }
 
+
 /* Component Styles */
 header {
   animation: slideDown 0.5s ease-out;
@@ -100,8 +101,9 @@ header {
 
 #mobileMenu:not(.-translate-y-full) .mobile-nav-btn {
   opacity: 0;
-  transform: translateX(-20px);
+  transform: translateX(-20px) translateZ(0);
   animation: slideInLeft 0.3s ease-out forwards;
+  will-change: transform;
 }
 
 #mobileMenu:not(.-translate-y-full) .mobile-nav-btn:nth-child(1) { animation-delay: 0.05s; }
@@ -113,32 +115,44 @@ header {
 @keyframes slideInLeft {
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0) translateZ(0);
   }
 }
 
 .hero-content {
   animation: fadeInUp 0.6s ease-out 0.2s both;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .hero-content h1 {
   animation: fadeInUp 0.6s ease-out 0.3s both;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .hero-content p:nth-of-type(1) {
   animation: fadeInUp 0.6s ease-out 0.4s both;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .hero-content p:nth-of-type(2) {
   animation: fadeInUp 0.6s ease-out 0.5s both;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .hero-content button {
   animation: fadeInUp 0.6s ease-out 0.6s both;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .hero-image {
   animation: fadeInScale 0.6s ease-out 0.4s both;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .hero-image img {
@@ -147,19 +161,28 @@ header {
 
 .pricing-header {
   animation: fadeInUp 0.5s ease-out both;
+  transform: translateZ(0);
+  will-change: transform;
 }
+
 
 .pricing-card {
   animation: fadeInUp 0.5s ease-out 0.1s both;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 
 .work-header {
   animation: fadeInUp 0.5s ease-out both;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .work-card {
   animation: fadeInUp 0.5s ease-out both;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .work-card.border-b {
@@ -189,11 +212,15 @@ header {
 
 .skills-header {
   animation: fadeInUp 0.5s ease-out both;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .skills-card {
   animation: fadeInUp 0.5s ease-out both;
   border-color: rgba(13, 148, 136, 0.35) !important;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .skills-card:hover {
@@ -219,19 +246,27 @@ header {
 
 .skills-description {
   animation: fadeInUp 0.5s ease-out 0.4s both;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .contact-content {
   animation: fadeInUp 0.5s ease-out both;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .contact-button {
   animation: fadeInUp 0.5s ease-out 0.1s both;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 
 .social-link {
   animation: fadeInUp 0.5s ease-out both;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .social-link[data-index="0"] {
@@ -249,12 +284,18 @@ header {
 
 .contact-footer {
   animation: fadeIn 0.5s ease-out 0.3s both;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 #imageModal {
   animation: fadeIn 0.2s ease-out;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 #imageModal img {
   animation: fadeInScale 0.3s ease-out 0.1s both;
+  transform: translateZ(0);
+  will-change: transform;
 }

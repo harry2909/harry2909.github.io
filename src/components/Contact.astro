@@ -16,12 +16,8 @@ const getIcon = (iconName: string) => {
 <section id="contact" class="py-12 px-4 sm:py-16 sm:px-6 md:py-20 lg:py-10">
   <div class="max-w-6xl mx-auto">
     <div class="text-center max-w-2xl mx-auto contact-content px-2 sm:px-0">
-      <p class="text-white/80 mb-4 sm:mb-6 text-base sm:text-lg md:text-xl">
+      <p class="text-white/90 mb-4 sm:mb-6 text-base font-semibold">
         If you need a straightforward brochure website for your business, feel free to get in touch.
-      </p>
-
-      <p class="text-white/80 mb-4 sm:mb-6 text-sm sm:text-base md:text-lg">
-        I'm currently available for new projects.
       </p>
 
       <a
@@ -35,7 +31,7 @@ const getIcon = (iconName: string) => {
         Get in touch
       </a>
 
-      <div class="flex justify-center gap-4 sm:gap-6 [&_a]:text-white/80 [&_a]:hover:text-primary [&_a]:transition-all duration-300 ease-in-out [&_a]:hover:-translate-y-0.5 [&_a]:hover:scale-110">
+      <div class="flex justify-center gap-4 sm:gap-6 [&_a]:text-white/90 [&_a]:hover:text-primary [&_a]:transition-all duration-300 ease-in-out [&_a]:hover:-translate-y-0.5 [&_a]:hover:scale-110">
         {socialLinks.map((social, index) => {
           const iconHtml = getIcon(social.icon);
           return (
@@ -52,7 +48,7 @@ const getIcon = (iconName: string) => {
         })}
       </div>
 
-      <p class="text-white/80 text-sm sm:text-base mt-8 sm:mt-12 contact-footer">
+      <p class="text-white/90 text-sm sm:text-base mt-8 sm:mt-12 contact-footer font-semibold">
         © 2026 Harry Preston
       </p>
     </div>

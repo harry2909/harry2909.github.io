@@ -1,0 +1,135 @@
+---
+import work1Main from '../assets/Work1.png';
+import work1_1 from '../assets/Work1.1.png';
+import work1_2 from '../assets/Work1.2.png';
+import work2Main from '../assets/Work2.png';
+import work2_1 from '../assets/Work2.1.png';
+import work2_2 from '../assets/Work2.2.png';
+import work3Main from '../assets/Work3.png';
+import work3_1 from '../assets/Work3.1.png';
+import work3_2 from '../assets/Work3.2.png';
+
+const projects = [
+  {
+    title: 'Law Firm',
+    images: [work1Main, work1_1, work1_2]
+  },
+  {
+    title: 'Insurance',
+    images: [work2Main, work2_1, work2_2]
+  },
+  {
+    title: 'Distribution',
+    images: [work3Main, work3_1, work3_2]
+  }
+];
+---
+
+<section id="work" class="py-12 px-4 sm:py-16 sm:px-6 md:py-20 lg:py-10">
+  <div class="max-w-6xl mx-auto">
+    <div class="mb-6 sm:mb-8 work-header">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-2">Selected Work</h2>
+      <p class="text-white/80 text-sm sm:text-base md:text-lg">Projects delivered as part of my role at a digital agency.</p>
+    </div>
+
+    <div class="space-y-8 sm:space-y-10 md:space-y-12">
+      {projects.map((project, index) => (
+        <article
+          class={`work-card ${index < projects.length - 1 ? 'pb-8 sm:pb-10 md:pb-12 border-b' : ''}`}
+          data-index={index}
+        >
+          <h3 class="text-xl sm:text-2xl md:text-3xl lg:text-3xl font-bold mb-4 sm:mb-6">{project.title}</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
+            {project.images.map((image, imgIndex) => (
+              <button
+                type="button"
+                data-image-src={image.src}
+                data-image-alt={`${project.title} screenshot ${imgIndex + 1}`}
+                class="work-image-btn bg-section-bg rounded-lg sm:rounded-xl overflow-hidden border group hover:-translate-y-1 transition-all duration-300 cursor-pointer text-left w-full"
+              >
+                <div class="relative overflow-hidden aspect-video">
+                  <img
+                    src={image.src}
+                    alt={`${project.title} screenshot ${imgIndex + 1}`}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              </button>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<div id="imageModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-sm" onclick="closeImageModal()">
+  <button
+    onclick="closeImageModal()"
+    class="absolute top-4 right-4 text-white/80 hover:text-white transition-colors"
+    aria-label="Close modal"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  </button>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6" onclick="event.stopPropagation()">
+    <img id="modalImage" src="" alt="" class="max-h-[90vh] w-auto mx-auto rounded-lg" />
+  </div>
+</div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    const imageButtons = document.querySelectorAll('.work-image-btn');
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const closeBtn = modal?.querySelector('button[aria-label="Close modal"]');
+
+    function openImageModal(src, alt) {
+      if (modal && modalImage) {
+        modalImage.src = src;
+        modalImage.alt = alt;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeImageModal() {
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+    }
+
+    imageButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const src = this.getAttribute('data-image-src');
+        const alt = this.getAttribute('data-image-alt');
+        if (src) {
+          openImageModal(src, alt);
+        }
+      });
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeImageModal);
+    }
+
+    if (modal) {
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          closeImageModal();
+        }
+      });
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+        closeImageModal();
+      }
+    });
+  });
+</script>

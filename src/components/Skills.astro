@@ -1,0 +1,66 @@
+---
+const highlights = [
+  {
+    icon: 'briefcase',
+    title: 'Professional experience',
+    description: 'Four years working at a UK digital agency building and maintaining client websites.'
+  },
+  {
+    icon: 'code',
+    title: 'CMS expertise',
+    description: 'Specialist in Craft CMS with a focus on clean, maintainable builds.'
+  },
+  {
+    icon: 'palette',
+    title: 'Brochure websites',
+    description: 'Simple, modern sites designed to be easy to use and easy to manage.'
+  },
+  {
+    icon: 'server',
+    title: 'End-to-end delivery',
+    description: 'From initial setup through to deployment and hosting configuration.'
+  }
+];
+
+const getIcon = (iconName: string) => {
+  const icons: Record<string, string> = {
+    briefcase: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>`,
+    code: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`,
+    palette: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125 0-.926.746-1.648 1.688-1.648H16c3.313 0 6-2.687 6-6 0-4.5-3.5-8-8-8z"></path></svg>`,
+    server: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>`
+  };
+  return icons[iconName] || '';
+};
+---
+
+<section id="skills" class="py-12 px-4 sm:py-16 sm:px-6 md:py-20 lg:py-10 bg-section-bg">
+  <div class="max-w-6xl mx-auto">
+    <div class="mb-6 sm:mb-8 text-center skills-header">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-2">Experience & Expertise</h2>
+      <p class="text-white/80 text-sm sm:text-base md:text-lg">What I bring to your project</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+      {highlights.map((item, index) => {
+        const iconHtml = getIcon(item.icon);
+        return (
+          <div
+            class="p-4 sm:p-5 md:p-6 rounded-lg sm:rounded-xl bg-header-bg border text-center skills-card hover:-translate-y-1 transition-all duration-300 group"
+            data-index={index}
+          >
+            <div class="inline-block mb-2 sm:mb-3 skills-icon group-hover:rotate-45 transition-transform duration-300" set:html={iconHtml}></div>
+
+            <h3 class="text-sm sm:text-base md:text-lg mb-1 font-bold">{item.title}</h3>
+            <p class="text-sm sm:text-base md:text-lg text-white/80">{item.description}</p>
+          </div>
+        );
+      })}
+    </div>
+
+    <div class="mt-6 sm:mt-8 md:mt-12 text-center max-w-3xl mx-auto px-4 sm:px-0 skills-description">
+      <p class="text-white/80 leading-relaxed text-sm sm:text-base md:text-lg">
+        I focus on clear communication, reliable delivery, and building websites that do what they need to - without unnecessary complexity.
+      </p>
+    </div>
+  </div>
+</section>

@@ -11,15 +11,18 @@ import work3_2 from '../assets/Work3.2.png';
 
 const projects = [
   {
-    title: 'Law Firm',
+    title: 'Law Firms',
+    description: 'Professional websites for legal practices, featuring clear navigation and trust-building design.',
     images: [work1Main, work1_1, work1_2]
   },
   {
     title: 'Insurance',
+    description: 'Modern, user-friendly sites that make complex insurance information accessible and easy to understand.',
     images: [work2Main, work2_1, work2_2]
   },
   {
     title: 'Distribution',
+    description: 'Streamlined websites for distribution companies, focused on showcasing services and facilitating enquiries.',
     images: [work3Main, work3_1, work3_2]
   }
 ];
@@ -38,7 +41,10 @@ const projects = [
           class={`work-card ${index < projects.length - 1 ? 'pb-8 sm:pb-10 md:pb-12 border-b' : ''}`}
           data-index={index}
         >
-          <h3 class="text-xl sm:text-2xl md:text-3xl lg:text-3xl font-bold mb-4 sm:mb-6">{project.title}</h3>
+          <div class="mb-4 sm:mb-6">
+            <h3 class="text-xl sm:text-2xl md:text-3xl lg:text-3xl font-bold mb-2 text-primary">{project.title}</h3>
+            <p class="text-white/70 text-sm sm:text-base md:text-lg">{project.description}</p>
+          </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
             {project.images.map((image, imgIndex) => (
               <button

@@ -6,12 +6,18 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier --write \"src/**/*.{astro,js,ts,json,css}\"",
+    "format:check": "prettier --check \"src/**/*.{astro,js,ts,json,css}\""
   },
   "dependencies": {
     "@fontsource/poppins": "^5.2.7",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.16.10",
     "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "prettier": "^3.8.0",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }

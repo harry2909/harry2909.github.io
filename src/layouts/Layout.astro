@@ -8,19 +8,53 @@ import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/700.css';
 import '@fontsource/poppins/800.css';
 import '@fontsource/poppins/900.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Harry Preston - Freelance Developer | Fixed-Price Brochure Websites',
+  description = 'Professional freelance developer building fast, fixed-price brochure websites for small UK businesses. 4 years of experience. Clean, modern designs that are easy to update.',
+} = Astro.props;
+
+const siteUrl = Astro.site?.href || 'https://harry2909.github.io';
 ---
 
 <!doctype html>
-<html lang='en'>
+<html lang="en">
   <head>
-    <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <meta name='generator' content={Astro.generator} />
-    <title>Harry - Freelance Developer</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    {/* Primary Meta Tags */}
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+
+    {/* Open Graph / Facebook */}
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Harry Preston - Freelance Developer" />
+
+    {/* Twitter */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={siteUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    {/* Additional SEO */}
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="author" content="Harry Preston" />
   </head>
   <body
-    class='min-h-screen w-full m-0 p-0 transition-colors duration-300 overflow-x-hidden font-poppins'
+    class="min-h-screen w-full m-0 p-0 transition-colors duration-300 overflow-x-hidden font-poppins"
   >
     <slot />
   </body>

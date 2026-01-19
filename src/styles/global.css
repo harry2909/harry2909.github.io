@@ -1,9 +1,34 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @layer base {
-  a, button {
+  a,
+  button {
     cursor: pointer;
   }
+}
+
+/* Screen reader only - for accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
 }
 
 @theme {
@@ -91,7 +116,6 @@ html {
   }
 }
 
-
 /* Component Styles */
 header {
   animation: slideDown 0.5s ease-out;
@@ -106,11 +130,21 @@ header {
   will-change: transform;
 }
 
-#mobileMenu:not(.-translate-y-full) .mobile-nav-btn:nth-child(1) { animation-delay: 0.05s; }
-#mobileMenu:not(.-translate-y-full) .mobile-nav-btn:nth-child(2) { animation-delay: 0.1s; }
-#mobileMenu:not(.-translate-y-full) .mobile-nav-btn:nth-child(3) { animation-delay: 0.15s; }
-#mobileMenu:not(.-translate-y-full) .mobile-nav-btn:nth-child(4) { animation-delay: 0.2s; }
-#mobileMenu:not(.-translate-y-full) .mobile-nav-btn:nth-child(5) { animation-delay: 0.25s; }
+#mobileMenu:not(.-translate-y-full) .mobile-nav-btn:nth-child(1) {
+  animation-delay: 0.05s;
+}
+#mobileMenu:not(.-translate-y-full) .mobile-nav-btn:nth-child(2) {
+  animation-delay: 0.1s;
+}
+#mobileMenu:not(.-translate-y-full) .mobile-nav-btn:nth-child(3) {
+  animation-delay: 0.15s;
+}
+#mobileMenu:not(.-translate-y-full) .mobile-nav-btn:nth-child(4) {
+  animation-delay: 0.2s;
+}
+#mobileMenu:not(.-translate-y-full) .mobile-nav-btn:nth-child(5) {
+  animation-delay: 0.25s;
+}
 
 @keyframes slideInLeft {
   to {
@@ -165,13 +199,11 @@ header {
   will-change: transform;
 }
 
-
 .pricing-card {
   animation: fadeInUp 0.5s ease-out 0.1s both;
   transform: translateZ(0);
   will-change: transform;
 }
-
 
 .work-header {
   animation: fadeInUp 0.5s ease-out both;
@@ -197,18 +229,17 @@ header {
   border-color: rgba(13, 148, 136, 0.5) !important;
 }
 
-.work-card[data-index="0"] {
+.work-card[data-index='0'] {
   animation-delay: 0.1s;
 }
 
-.work-card[data-index="1"] {
+.work-card[data-index='1'] {
   animation-delay: 0.2s;
 }
 
-.work-card[data-index="2"] {
+.work-card[data-index='2'] {
   animation-delay: 0.3s;
 }
-
 
 .skills-header {
   animation: fadeInUp 0.5s ease-out both;
@@ -227,22 +258,21 @@ header {
   border-color: rgba(13, 148, 136, 0.5) !important;
 }
 
-.skills-card[data-index="0"] {
+.skills-card[data-index='0'] {
   animation-delay: 0.1s;
 }
 
-.skills-card[data-index="1"] {
+.skills-card[data-index='1'] {
   animation-delay: 0.2s;
 }
 
-.skills-card[data-index="2"] {
+.skills-card[data-index='2'] {
   animation-delay: 0.3s;
 }
 
-.skills-card[data-index="3"] {
+.skills-card[data-index='3'] {
   animation-delay: 0.4s;
 }
-
 
 .skills-description {
   animation: fadeInUp 0.5s ease-out 0.4s both;
@@ -262,25 +292,23 @@ header {
   will-change: transform;
 }
 
-
 .social-link {
   animation: fadeInUp 0.5s ease-out both;
   transform: translateZ(0);
   will-change: transform;
 }
 
-.social-link[data-index="0"] {
+.social-link[data-index='0'] {
   animation-delay: 0.2s;
 }
 
-.social-link[data-index="1"] {
+.social-link[data-index='1'] {
   animation-delay: 0.3s;
 }
 
-.social-link[data-index="2"] {
+.social-link[data-index='2'] {
   animation-delay: 0.4s;
 }
-
 
 .contact-footer {
   animation: fadeIn 0.5s ease-out 0.3s both;

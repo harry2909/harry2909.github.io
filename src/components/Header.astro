@@ -1,37 +1,65 @@
 ---
+
 ---
 
-<header class="fixed top-0 left-0 right-0 bg-header-bg/30 backdrop-blur-md z-50 border-b border-white/10">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between xl:px-0">
+<header
+  class="fixed top-0 left-0 right-0 bg-header-bg/30 backdrop-blur-md z-50 border-b border-white/10"
+>
+  <div
+    class="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between xl:px-0"
+  >
     <div class="text-lg sm:text-xl tracking-tight">
       <span class="text-primary">Harry </span>Preston
     </div>
 
-    <nav class="hidden md:flex gap-6 lg:gap-8 [&_button]:text-sm md:[&_button]:text-base lg:[&_button]:text-lg [&_button]:text-white/90 [&_button]:hover:text-primary [&_button]:transition-colors">
-      <button onclick="document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })">
-        About
-      </button>
-      <button onclick="document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })">
-        Pricing
-      </button>
-      <button onclick="document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })">
-        Work
-      </button>
-      <button onclick="document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })">
-        Skills
-      </button>
-      <button onclick="document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })">
-        Contact
-      </button>
+    <nav
+      class="hidden md:flex gap-6 lg:gap-8 [&_a]:text-sm md:[&_a]:text-base lg:[&_a]:text-lg [&_a]:text-white/90 [&_a]:hover:text-primary [&_a]:transition-colors"
+      aria-label="Main navigation"
+    >
+      <a href="#about" class="nav-link"> About </a>
+      <a href="#pricing" class="nav-link"> Pricing </a>
+      <a href="#work" class="nav-link"> Work </a>
+      <a href="#skills" class="nav-link"> Skills </a>
+      <a href="#contact" class="nav-link"> Contact </a>
     </nav>
 
-    <button id="mobileMenuToggle" class="md:hidden text-white/90 hover:text-primary transition-colors duration-300 relative z-50" aria-label="Toggle menu">
-      <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300">
+    <button
+      id="mobileMenuToggle"
+      class="md:hidden text-white/90 hover:text-primary transition-colors duration-300 relative z-50"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      aria-controls="mobileMenu"
+    >
+      <svg
+        id="menuIcon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="transition-transform duration-300"
+      >
         <line x1="4" x2="20" y1="12" y2="12" class="menu-line-1"></line>
         <line x1="4" x2="20" y1="6" y2="6" class="menu-line-2"></line>
         <line x1="4" x2="20" y1="18" y2="18" class="menu-line-3"></line>
       </svg>
-      <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden transition-transform duration-300">
+      <svg
+        id="closeIcon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="hidden transition-transform duration-300"
+      >
         <line x1="18" y1="6" x2="6" y2="18"></line>
         <line x1="6" y1="6" x2="18" y2="18"></line>
       </svg>
@@ -39,99 +67,73 @@
   </div>
 
   <!-- Mobile Menu -->
-  <nav id="mobileMenu" class="md:hidden fixed top-0 left-0 right-0 bg-header-bg/95 backdrop-blur-lg border-b border-primary/30 transform -translate-y-full transition-transform duration-300 ease-out z-40 transform-gpu">
+  <nav
+    id="mobileMenu"
+    class="md:hidden fixed top-0 left-0 right-0 bg-header-bg/95 backdrop-blur-lg border-b border-primary/30 transform -translate-y-full transition-transform duration-300 ease-out z-40 transform-gpu"
+    aria-label="Mobile navigation"
+  >
     <div class="pt-4 pb-8 px-4">
       <div class="mb-6 pb-6 border-b border-primary/30">
         <div class="text-lg tracking-tight">
           <span class="text-primary">Harry </span>Preston
         </div>
       </div>
-      <div class="space-y-2">
-      <button
-        class="mobile-nav-btn w-full text-left text-base text-white/90 hover:text-primary py-2 transition-colors duration-300"
-        onclick="document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); closeMobileMenu();"
-      >
-        About
-      </button>
-      <button
-        class="mobile-nav-btn w-full text-left text-base text-white/90 hover:text-primary py-2 transition-colors duration-300"
-        onclick="document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' }); closeMobileMenu();"
-      >
-        Pricing
-      </button>
-      <button
-        class="mobile-nav-btn w-full text-left text-base text-white/90 hover:text-primary py-2 transition-colors duration-300"
-        onclick="document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' }); closeMobileMenu();"
-      >
-        Work
-      </button>
-      <button
-        class="mobile-nav-btn w-full text-left text-base text-white/90 hover:text-primary py-2 transition-colors duration-300"
-        onclick="document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' }); closeMobileMenu();"
-      >
-        Skills
-      </button>
-      <button
-        class="mobile-nav-btn w-full text-left text-base text-white/90 hover:text-primary py-2 transition-colors duration-300"
-        onclick="document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); closeMobileMenu();"
-      >
-        Contact
-      </button>
-      </div>
+      <ul class="space-y-2" role="list">
+        <li>
+          <a
+            href="#about"
+            class="mobile-nav-btn w-full text-left text-base text-white/90 hover:text-primary py-2 transition-colors duration-300 block"
+            onclick="closeMobileMenu();"
+          >
+            About
+          </a>
+        </li>
+        <li>
+          <a
+            href="#pricing"
+            class="mobile-nav-btn w-full text-left text-base text-white/90 hover:text-primary py-2 transition-colors duration-300 block"
+            onclick="closeMobileMenu();"
+          >
+            Pricing
+          </a>
+        </li>
+        <li>
+          <a
+            href="#work"
+            class="mobile-nav-btn w-full text-left text-base text-white/90 hover:text-primary py-2 transition-colors duration-300 block"
+            onclick="closeMobileMenu();"
+          >
+            Work
+          </a>
+        </li>
+        <li>
+          <a
+            href="#skills"
+            class="mobile-nav-btn w-full text-left text-base text-white/90 hover:text-primary py-2 transition-colors duration-300 block"
+            onclick="closeMobileMenu();"
+          >
+            Skills
+          </a>
+        </li>
+        <li>
+          <a
+            href="#contact"
+            class="mobile-nav-btn w-full text-left text-base text-white/90 hover:text-primary py-2 transition-colors duration-300 block"
+            onclick="closeMobileMenu();"
+          >
+            Contact
+          </a>
+        </li>
+      </ul>
     </div>
   </nav>
 
   <!-- Backdrop -->
-  <div id="mobileMenuBackdrop" class="md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 z-30"></div>
+  <div
+    id="mobileMenuBackdrop"
+    class="md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 z-30"
+  >
+  </div>
 </header>
 
-<script is:inline>
-  let mobileMenuOpen = false;
-
-  function toggleMobileMenu() {
-    mobileMenuOpen = !mobileMenuOpen;
-    const menu = document.getElementById('mobileMenu');
-    const backdrop = document.getElementById('mobileMenuBackdrop');
-    const menuIcon = document.getElementById('menuIcon');
-    const closeIcon = document.getElementById('closeIcon');
-    const body = document.body;
-    const navButtons = document.querySelectorAll('.mobile-nav-btn');
-
-    if (mobileMenuOpen) {
-      menu?.classList.remove('-translate-y-full');
-      backdrop?.classList.remove('opacity-0', 'pointer-events-none');
-      backdrop?.classList.add('opacity-100', 'pointer-events-auto');
-      menuIcon?.classList.add('hidden');
-      closeIcon?.classList.remove('hidden');
-      body.style.overflow = 'hidden';
-    } else {
-      menu?.classList.add('-translate-y-full');
-      backdrop?.classList.remove('opacity-100', 'pointer-events-auto');
-      backdrop?.classList.add('opacity-0', 'pointer-events-none');
-      menuIcon?.classList.remove('hidden');
-      closeIcon?.classList.add('hidden');
-      body.style.overflow = '';
-    }
-  }
-
-  function closeMobileMenu() {
-    if (mobileMenuOpen) {
-      toggleMobileMenu();
-    }
-  }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    const toggle = document.getElementById('mobileMenuToggle');
-    const backdrop = document.getElementById('mobileMenuBackdrop');
-
-    toggle?.addEventListener('click', toggleMobileMenu);
-    backdrop?.addEventListener('click', closeMobileMenu);
-
-    // Close on escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && mobileMenuOpen) {
-        closeMobileMenu();
-      }
-    });
-  });
-</script>
+<script src="../scripts/mobile-menu.ts"></script>
